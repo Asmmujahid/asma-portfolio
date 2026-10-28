@@ -1,6 +1,5 @@
 import {
   FiGithub,
-  FiExternalLink,
   FiArrowUpRight,
 } from "react-icons/fi";
 
@@ -21,11 +20,8 @@ function Projects() {
       image: "/screenshots/ecommerce.png",
       github:
         "https://github.com/Asmmujahid/ecommerce-backend",
-      demo:
-        "https://ecommerce-frontend-nine-blue.vercel.app/",
       featured: true,
     },
-
     {
       title: "Task Management System",
       description:
@@ -40,11 +36,8 @@ function Projects() {
       image: "/screenshots/tms.png",
       github:
         "https://github.com/Asmmujahid/laravel-task-management-system",
-      demo:
-        "https://laravel-task-management-system-production.up.railway.app/",
       featured: false,
     },
-
     {
       title: "Doctor Clinic APIs",
       description:
@@ -58,15 +51,17 @@ function Projects() {
       ],
       image: "/projects/doctor-clinic.png",
       github: "",
-      demo: "",
       featured: false,
     },
   ];
 
   return (
-    <section id="projects" className="section projects-section">
+    <section
+      id="projects"
+      className="section projects-section"
+    >
       <div className="container">
-
+        {/* Section Heading */}
         <div className="section-heading">
           <p className="section-label">
             MY PROJECTS
@@ -78,55 +73,48 @@ function Projects() {
           </h2>
         </div>
 
+        {/* Projects Grid */}
         <div className="projects-grid">
-
           {projects.map((project, index) => (
             <article
               className={`project-card ${
-                project.featured ? "project-featured" : ""
+                project.featured
+                  ? "project-featured"
+                  : ""
               }`}
               key={project.title}
             >
-
               {/* Project Image */}
               <div className="project-image-wrapper">
-
                 <img
                   src={project.image}
                   alt={`${project.title} screenshot`}
                   className="project-image"
+                  loading="lazy"
                 />
 
                 <div className="project-image-overlay">
                   <FiArrowUpRight />
                 </div>
-
               </div>
 
               {/* Project Header */}
               <div className="project-top">
-
                 <div className="project-number">
-                  0{index + 1}
+                  {String(index + 1).padStart(2, "0")}
                 </div>
 
                 <FiArrowUpRight className="project-arrow" />
-
               </div>
 
               {/* Project Content */}
               <div className="project-content">
+                <h3>{project.title}</h3>
 
-                <h3>
-                  {project.title}
-                </h3>
+                <p>{project.description}</p>
 
-                <p>
-                  {project.description}
-                </p>
-
+                {/* Technologies */}
                 <div className="project-technologies">
-
                   {project.technologies.map(
                     (technology) => (
                       <span key={technology}>
@@ -134,49 +122,30 @@ function Projects() {
                       </span>
                     )
                   )}
-
                 </div>
-
               </div>
 
-              {/* Project Links */}
-              <div className="project-links">
-
-                {project.github && (
+              {/* GitHub Repository Link */}
+              {project.github && (
+                <div className="project-links">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="project-link"
+                    aria-label={`View ${project.title} on GitHub`}
                   >
                     <FiGithub />
-                    GitHub
+                    <span>GitHub Repository</span>
                   </a>
-                )}
-
-                {project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link project-demo"
-                  >
-                    <FiExternalLink />
-                    Live Demo
-                  </a>
-                )}
-
-              </div>
-
+                </div>
+              )}
             </article>
           ))}
-
         </div>
-
       </div>
     </section>
   );
 }
 
 export default Projects;
-
