@@ -16,8 +16,8 @@ function Contact() {
     {
       icon: <FiMail />,
       label: "Email",
-      value: "your-email@example.com",
-      link: "mailto:your-email@example.com",
+      value: "asmamujahid45@gmail.com",
+      link: "mailto:asmamujahid45@gmail.com",
     },
     {
       icon: <FiMapPin />,
@@ -34,8 +34,8 @@ function Contact() {
     {
       icon: <FiLinkedin />,
       label: "LinkedIn",
-      value: "linkedin.com/in/asma-syed-49a8b3339",
-      link: "https://www.linkedin.com/in/asma-syed-49a8b3339/",
+      value: "linkedin.com/in/asma-mujahid-49a8b3339",
+      link: "https://www.linkedin.com/in/asma-mujahid-49a8b3339/",
     },
   ];
 
